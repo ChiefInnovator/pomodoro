@@ -1,0 +1,963 @@
+/* Base Styles */
+:root {
+    /* Color Palette - Warm colors inspired by the original red Pomodoro timer */
+    --primary-color: #e74c3c; /* Tomato red */
+    --primary-dark: #c0392b; /* Darker red */
+    --primary-light: #f9ebea; /* Light red */
+    --secondary-color: #f39c12; /* Orange */
+    --text-color: #2c3e50; /* Dark blue/gray */
+    --text-light: #7f8c8d; /* Light gray */
+    --background-color: #ecf0f1; /* Light gray background */
+    --white: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --modal-overlay: rgba(0, 0, 0, 0.5);
+    
+    /* Timer dimensions */
+    --timer-size: 300px;
+    --timer-knob-size: 30px;
+    
+    /* Font sizes */
+    --font-small: 0.875rem;
+    --font-medium: 1rem;
+    --font-large: 1.25rem;
+    --font-xlarge: 1.5rem;
+    --font-xxlarge: 2rem;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* Border radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-circle: 50%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+    margin-bottom: var(--spacing-lg);
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: var(--font-xxlarge);
+}
+
+h2 {
+    color: var(--primary-dark);
+    font-size: var(--font-xlarge);
+    margin-bottom: var(--spacing-md);
+}
+
+h3 {
+    color: var(--text-color);
+    font-size: var(--font-large);
+    margin-bottom: var(--spacing-sm);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Timer Styles - Skeuomorphic Design */
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.timer-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.timer {
+    width: var(--timer-size);
+    height: var(--timer-size);
+    position: relative;
+    margin: 0 auto;
+}
+
+.timer-face {
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: var(--border-radius-circle);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.2),
+        inset 0 -5px 10px var(--primary-dark),
+        inset 0 5px 10px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    /* Texture effect */
+    background-image: 
+        radial-gradient(circle at 30% 30%, 
+            rgba(255, 255, 255, 0.1) 0%, 
+            rgba(255, 255, 255, 0) 60%),
+        radial-gradient(circle at 70% 70%, 
+            rgba(0, 0, 0, 0.1) 0%, 
+            rgba(0, 0, 0, 0) 60%);
+}
+
+.timer-display {
+    width: 70%;
+    height: 70%;
+    background: var(--white);
+    border-radius: var(--border-radius-circle);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--text-color);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    /* Subtle texture */
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.8),
+        rgba(240, 240, 240, 0.8)
+    );
+}
+
+.timer-knob {
+    position: absolute;
+    width: var(--timer-knob-size);
+    height: var(--timer-knob-size);
+    background: var(--secondary-color);
+    border-radius: var(--border-radius-circle);
+    top: 10%;
+    right: 10%;
+    cursor: pointer;
+    box-shadow: 
+        0 2px 5px rgba(0, 0, 0, 0.2),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.1),
+        inset 0 2px 5px rgba(255, 255, 255, 0.1);
+    z-index: 3;
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
+
+.timer-knob:hover {
+    transform: scale(1.1);
+}
+
+.timer-knob:active {
+    transform: scale(0.95);
+}
+
+.timer-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    clip: rect(0, var(--timer-size), var(--timer-size), calc(var(--timer-size) / 2));
+    z-index: 1;
+}
+
+.timer-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    clip: rect(0, calc(var(--timer-size) / 2), var(--timer-size), 0);
+    background: var(--primary-light);
+    transform: rotate(0deg);
+    transform-origin: center right;
+    transition: transform 1s linear;
+}
+
+.timer-controls {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.control-button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-medium);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    white-space: nowrap;
+    min-width: max-content;
+}
+
+.control-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.control-button:active {
+    transform: translateY(2px);
+}
+
+.control-button:disabled {
+    background-color: var(--text-light);
+    cursor: not-allowed;
+}
+
+.session-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: var(--spacing-md);
+    gap: var(--spacing-sm);
+}
+
+.session-type {
+    font-size: var(--font-large);
+    font-weight: bold;
+    color: var(--primary-dark);
+}
+
+.pomodoro-counter {
+    font-size: var(--font-medium);
+    color: var(--text-color);
+}
+
+/* Task List Styles */
+.task-container {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: 10px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    margin-bottom: var(--spacing-xl);
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100vh;
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+    z-index: 5;
+}
+
+.task-container.open {
+    right: 0;
+}
+
+.task-toggle {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+    padding: var(--spacing-md);
+    cursor: pointer;
+    z-index: 6;
+    white-space: nowrap;
+    min-width: max-content;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    box-shadow: -2px 0 5px var(--shadow-color);
+}
+
+.task-toggle:hover {
+    background-color: var(--primary-dark);
+}
+
+.task-container .close-tasks {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: none;
+    border: none;
+    font-size: var(--font-xlarge);
+    color: var(--text-color);
+    cursor: pointer;
+    white-space: nowrap;
+    min-width: max-content;
+}
+
+.task-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    gap: var(--spacing-xl); /* Add more space between elements */
+}
+
+.task-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-medium);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    white-space: nowrap;
+    min-width: max-content;
+}
+
+.task-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.task-button:active {
+    transform: translateY(2px);
+}
+
+.task-filter {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.task-filter select {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--text-light);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-small);
+    min-width: 150px; /* Fixed width for consistency */
+    width: 150px;
+    box-sizing: border-box;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-lg);
+    background-color: var(--primary-light);
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--primary-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 15px;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.task-checkbox {
+    margin-right: var(--spacing-lg);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.task-title {
+    font-weight: bold;
+    font-size: var(--font-medium);
+}
+
+.task-category {
+    font-size: var(--font-small);
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 4px 10px;
+    border-radius: var(--border-radius-sm);
+    margin: 10px;
+}
+
+.task-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-small);
+    color: var(--text-light);
+}
+
+.task-priority {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.priority-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.priority-low {
+    background-color: #2ecc71; /* Green */
+}
+
+.priority-medium {
+    background-color: #f39c12; /* Orange */
+}
+
+.priority-high {
+    background-color: #e74c3c; /* Red */
+}
+
+.task-pomodoros {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.task-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-left: var(--spacing-lg);
+}
+
+.task-action-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-medium);
+    color: var(--text-light);
+    transition: color 0.2s;
+    white-space: nowrap;
+    min-width: max-content;
+}
+
+.task-action-button:hover {
+    color: var(--primary-color);
+}
+
+.task-notes {
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-small);
+    color: var(--text-color);
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius-sm);
+    display: none; /* Hidden by default, shown when expanded */
+}
+
+.task-item.expanded .task-notes {
+    display: block;
+}
+
+/* Settings Modal Styles */
+.settings-modal, .task-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-overlay);
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings-content, .task-modal-content {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.settings-close, .task-close {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-md);
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: color 0.2s;
+}
+
+.settings-close:hover, .task-close:hover {
+    color: var(--primary-color);
+}
+
+.settings-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.setting-item label {
+    flex: 1;
+}
+
+.setting-item input[type="number"] {
+    width: 60px;
+    padding: var(--spacing-xs);
+    border: 1px solid var(--text-light);
+    border-radius: var(--border-radius-sm);
+}
+
+.setting-item input[type="range"] {
+    width: 150px;
+}
+
+.settings-save, .task-save-button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-medium);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.settings-save:hover, .task-save-button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Task Modal Styles */
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-group label {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--text-light);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-medium);
+}
+
+.task-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-md);
+}
+
+.task-cancel-button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--text-light);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-medium);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.task-cancel-button:hover {
+    background-color: var(--text-color);
+}
+
+/* Ad Container Styles */
+.ad-container {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md);
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    text-align: center;
+}
+
+.ad-placeholder {
+    width: 100%;
+    height: 90px;
+    background-color: var(--primary-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-light);
+    border: 1px dashed var(--text-light);
+    border-radius: var(--border-radius-sm);
+}
+
+/* Footer Styles */
+footer {
+    margin-top: auto;
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid var(--text-light);
+}
+
+.app-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; /* Fixed height for consistent vertical alignment */
+}
+
+.app-info p {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+}
+
+.app-actions {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.action-button {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-small);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.action-button:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Add to Home Screen Tutorial */
+.add-to-home-tutorial {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9;
+    max-width: 300px;
+}
+
+.tutorial-steps {
+    margin: var(--spacing-md) 0;
+}
+
+.tutorial-step {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.step-number {
+    width: 24px;
+    height: 24px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: var(--border-radius-circle);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.tutorial-close-button {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-small);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.tutorial-close-button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Animations */
+@keyframes wind {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.winding {
+    animation: wind 2s ease-in-out;
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Completed Task Style */
+.task-item.completed {
+    opacity: 0.7;
+    border-left-color: #27ae60;
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+    main {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .timer-container {
+        flex: 1;
+        margin-right: var(--spacing-lg);
+        margin-bottom: 0;
+    }
+    
+    .task-container {
+        flex: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    :root {
+        --timer-size: 250px;
+        --timer-knob-size: 25px;
+    }
+    
+    .timer-display {
+        font-size: 2.5rem;
+    }
+    
+    .app-info {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --timer-size: 200px;
+        --timer-knob-size: 20px;
+    }
+    
+    .timer-display {
+        font-size: 2rem;
+    }
+    
+    .task-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+    
+    .control-button {
+        padding: var(--spacing-xs) var(--spacing-md);
+    }
+}
+
+.technique-description {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background-color: var(--primary-light);
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.technique-description p {
+    line-height: 1.6;
+    font-size: var(--font-medium);
+}
+
+.footer-links {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--primary-light);
+    text-align: center;
+    font-size: var(--font-small);
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.footer-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.settings-button {
+    font-size: var(--font-xlarge);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.action-button {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--primary-dark);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-small);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+    min-width: max-content;
+}
+
+.action-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Active task styling */
+.task-item.active-task {
+    border-left: 4px solid var(--primary-color);
+    background-color: var(--primary-light);
+}
+
+.start-working-button {
+    color: var(--primary-color) !important;
+    font-size: 1.2em !important;
+}
+
+.start-working-button:hover {
+    transform: scale(1.2);
+}
+
+/* Current task display near timer */
+.current-task-display {
+    background-color: var(--primary-light);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    margin-top: var(--spacing-md);
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.current-task-display .task-icon {
+    font-size: 1.2em;
+}
+
+.no-active-task {
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Hide the "Made with Manus" text */
+[href*="manus"] {
+    display: none !important;
+}

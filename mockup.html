@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer Mockup</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .mockup-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1 {
+            color: #e74c3c;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .mockup-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mockup-image {
+            width: 100%;
+            height: 300px;
+            background-color: #f9ebea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .timer-mockup {
+            width: 200px;
+            height: 200px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 
+                0 10px 20px rgba(0, 0, 0, 0.2),
+                inset 0 -5px 10px #c0392b,
+                inset 0 5px 10px rgba(255, 255, 255, 0.2);
+        }
+        
+        .timer-face {
+            width: 140px;
+            height: 140px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timer-knob {
+            width: 30px;
+            height: 30px;
+            background-color: #f39c12;
+            border-radius: 50%;
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .task-mockup {
+            padding: 20px;
+            background-color: white;
+        }
+        
+        .task-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9ebea;
+            border-left: 4px solid #e74c3c;
+            border-radius: 4px;
+        }
+        
+        .settings-mockup {
+            padding: 20px;
+            background-color: white;
+        }
+        
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .mockup-caption {
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .mobile-mockup {
+            width: 250px;
+            height: 500px;
+            border: 10px solid #2c3e50;
+            border-radius: 30px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .mobile-screen {
+            width: 100%;
+            height: 100%;
+            background-color: #ecf0f1;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        
+        .mobile-notch {
+            width: 100px;
+            height: 20px;
+            background-color: #2c3e50;
+            border-radius: 0 0 10px 10px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-container">
+        <h1>Pomodoro Timer - Visual Design Mockups</h1>
+        
+        <div class="mockup-grid">
+            <div class="mockup-item">
+                <div class="mockup-image">
+                    <div class="timer-mockup">
+                        <div class="timer-face">25:00</div>
+                        <div class="timer-knob"></div>
+                    </div>
+                </div>
+                <div class="mockup-caption">Skeuomorphic Timer Design</div>
+            </div>
+            
+            <div class="mockup-item">
+                <div class="mockup-image">
+                    <div class="task-mockup" style="width: 80%;">
+                        <h3 style="color: #e74c3c;">Tasks</h3>
+                        <div class="task-item">
+                            <div style="font-weight: bold;">Complete project documentation</div>
+                            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #7f8c8d;">
+                                <span>Priority: High</span>
+                                <span>🍅 0/2</span>
+                            </div>
+                        </div>
+                        <div class="task-item">
+                            <div style="font-weight: bold;">Review code changes</div>
+                            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #7f8c8d;">
+                                <span>Priority: Medium</span>
+                                <span>🍅 1/3</span>
+                            </div>
+                        </div>
+                        <div class="task-item">
+                            <div style="font-weight: bold;">Plan weekly meeting</div>
+                            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #7f8c8d;">
+                                <span>Priority: Low</span>
+                                <span>🍅 0/1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mockup-caption">Task Management Interface</div>
+            </div>
+            
+            <div class="mockup-item">
+                <div class="mockup-image">
+                    <div class="settings-mockup" style="width: 80%;">
+                        <h3 style="color: #e74c3c;">Settings</h3>
+                        <div class="setting-item">
+                            <span>Work Duration:</span>
+                            <input type="number" value="25" min="1" max="60" style="width: 60px;">
+                        </div>
+                        <div class="setting-item">
+                            <span>Short Break:</span>
+                            <input type="number" value="5" min="1" max="30" style="width: 60px;">
+                        </div>
+                        <div class="setting-item">
+                            <span>Long Break:</span>
+                            <input type="number" value="15" min="1" max="60" style="width: 60px;">
+                        </div>
+                        <div class="setting-item">
+                            <span>Volume:</span>
+                            <input type="range" min="0" max="100" value="50" style="width: 150px;">
+                        </div>
+                        <div class="setting-item">
+                            <span>Mute:</span>
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                </div>
+                <div class="mockup-caption">Settings Panel</div>
+            </div>
+            
+            <div class="mockup-item">
+                <div class="mockup-image">
+                    <div class="mobile-mockup">
+                        <div class="mobile-notch"></div>
+                        <div class="mobile-screen">
+                            <div style="text-align: center; font-weight: bold; margin: 10px 0; color: #e74c3c;">Pomodoro Timer</div>
+                            <div class="timer-mockup" style="width: 150px; height: 150px; margin: 20px auto;">
+                                <div class="timer-face" style="width: 100px; height: 100px; font-size: 1.5rem;">25:00</div>
+                                <div class="timer-knob" style="width: 20px; height: 20px;"></div>
+                            </div>
+                            <div style="display: flex; justify-content: center; gap: 10px; margin: 15px 0;">
+                                <button style="background-color: #e74c3c; color: white; border: none; padding: 5px 15px; border-radius: 4px;">Start</button>
+                                <button style="background-color: #7f8c8d; color: white; border: none; padding: 5px 15px; border-radius: 4px;">Reset</button>
+                            </div>
+                            <div style="margin-top: 20px;">
+                                <div style="font-weight: bold; color: #e74c3c;">Tasks</div>
+                                <div class="task-item" style="margin-top: 10px; font-size: 0.9rem;">
+                                    <div style="font-weight: bold;">Complete project</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mockup-caption">Mobile Responsive Design</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

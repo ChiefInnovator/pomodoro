@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer | Reclaim Your Time with Effective Time Management</title>
+    <meta name="description" content="Boost your productivity with our free Pomodoro Technique timer app. Improve focus, manage time effectively, and reclaim your schedule with this proven time management method.">
+    <meta name="keywords" content="Pomodoro Technique, Pomodoro timer, time management, productivity, focus technique, time blocking, reclaim time, work-life balance, productivity app, time management tool">
+    <meta name="author" content="Pomodoro Timer App">
+    <meta property="og:title" content="Pomodoro Timer | Effective Time Management Tool">
+    <meta property="og:description" content="Boost your productivity with our free Pomodoro Technique timer app. Improve focus, manage time effectively, and reclaim your schedule.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/icons/icon-512x512.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pomodoro Timer | Effective Time Management Tool">
+    <meta name="twitter:description" content="Boost your productivity with our free Pomodoro Technique timer app. Improve focus and manage time effectively.">
+    <meta name="twitter:image" content="assets/icons/icon-512x512.png">
+    <!-- Prevent Caching -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="canonical" href="https://oxvfihey.manus.space/">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Pomodoro Timer">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
+</head>
+<body>
+    <div class="app-container">
+        <div class="ad-container top-ad">
+            <!-- Top Ad Space -->
+            <div class="ad-placeholder">
+                <p>Ad Space</p>
+                <!-- Replace with actual Google Ad code in production -->
+            </div>
+        </div>
+        
+        <header>
+            <h1>Pomodoro Timer: Boost Your Productivity</h1>
+            <div class="header-actions">
+                <button id="addToHomeButton" class="action-button" aria-label="Add to Home Screen" title="Add to Home Screen">
+  <!-- Home icon SVG (iOS style) -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7"></path><path d="M9 22V12H15V22"></path></svg>
+</button>
+<button id="shareButton" class="action-button" aria-label="Share" title="Share">
+  <!-- Share icon SVG (iOS style) -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+</button>
+                <div class="settings-button" id="settingsButton">⚙️</div>
+            </div>
+        </header>
+
+        <main>
+            <div class="timer-container">
+                <div class="timer-wrapper">
+                    <div class="timer" id="timer">
+                        <div class="timer-face">
+                            <div class="timer-display">
+                                <span id="minutes">25</span>:<span id="seconds">00</span>
+                            </div>
+                            <div class="timer-knob" id="timerKnob"></div>
+                            <div class="timer-progress" id="timerProgress"></div>
+                        </div>
+                    </div>
+                    <div class="timer-controls">
+                        <button id="startButton" class="control-button">Start</button>
+                        <button id="pauseButton" class="control-button" disabled>Pause</button>
+                        <button id="resetButton" class="control-button">Reset</button>
+                    </div>
+                </div>
+                <div class="session-info">
+                    <div class="session-type" id="sessionType">Work Session</div>
+                    <div class="pomodoro-counter">
+                        Pomodoros: <span id="pomodoroCount">0</span>
+                    </div>
+                </div>
+                <div class="technique-description">
+                    <p>The <strong>Pomodoro Technique</strong> is a time management method that helps you <em>reclaim your time</em> and improve focus. Work in 25-minute intervals, followed by short breaks to maximize productivity and prevent burnout.</p>
+                </div>
+            </div>
+
+            <button id="taskToggle" class="task-toggle">Manage Tasks</button>
+
+            <div class="task-container" id="taskContainer">
+                <button class="close-tasks" id="closeTasks">×</button>
+                <h2>Manage Tasks Effectively</h2>
+                <div class="task-controls">
+                    <button id="addTaskButton" class="task-button">Add Task</button>
+                    <div class="task-filter">
+                        <label for="categoryFilter">Filter:</label>
+                        <select id="categoryFilter">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="task-list" id="taskList">
+                    <!-- Tasks will be added here dynamically -->
+                </div>
+            </div>
+        </main>
+
+        <div class="settings-modal" id="settingsModal">
+            <div class="settings-content">
+                <h2>Settings</h2>
+                <div class="settings-close" id="closeSettings">×</div>
+                <div class="settings-section">
+                    <h3>Timer Settings</h3>
+                    <div class="setting-item">
+                        <label for="workDuration">Work Duration (minutes):</label>
+                        <input type="number" id="workDuration" min="1" max="60" value="25">
+                    </div>
+                    <div class="setting-item">
+                        <label for="shortBreakDuration">Short Break (minutes):</label>
+                        <input type="number" id="shortBreakDuration" min="1" max="30" value="5">
+                    </div>
+                    <div class="setting-item">
+                        <label for="longBreakDuration">Long Break (minutes):</label>
+                        <input type="number" id="longBreakDuration" min="1" max="60" value="15">
+                    </div>
+                    <div class="setting-item">
+                        <label for="longBreakInterval">Long Break After (pomodoros):</label>
+                        <input type="number" id="longBreakInterval" min="1" max="10" value="4">
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Sound Settings</h3>
+                    <div class="setting-item">
+                        <label for="volumeControl">Volume:</label>
+                        <input type="range" id="volumeControl" min="0" max="100" value="50">
+                    </div>
+                    <div class="setting-item">
+                        <label for="muteToggle">Mute:</label>
+                        <input type="checkbox" id="muteToggle">
+                    </div>
+                </div>
+                <button id="saveSettings" class="settings-save">Save Settings</button>
+            </div>
+        </div>
+
+        <div class="task-modal" id="taskModal">
+            <div class="task-modal-content">
+                <h2 id="taskModalTitle">Add Task</h2>
+                <div class="task-close" id="closeTaskModal">×</div>
+                <div class="task-form">
+                    <div class="form-group">
+                        <label for="taskTitle">Task Title:</label>
+                        <input type="text" id="taskTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskCategory">Category:</label>
+                        <input type="text" id="taskCategory" list="categories" placeholder="Enter or select category">
+                        <datalist id="categories">
+                            <option value="Work">
+                            <option value="Study">
+                            <option value="Personal">
+                        </datalist>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskPriority">Priority:</label>
+                        <select id="taskPriority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskNotes">Notes:</label>
+                        <textarea id="taskNotes" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="estimatedPomodoros">Estimated Pomodoros:</label>
+                        <input type="number" id="estimatedPomodoros" min="1" value="1">
+                    </div>
+                    <input type="hidden" id="taskId">
+                    <div class="task-form-buttons">
+                        <button id="saveTaskButton" class="task-save-button">Save Task</button>
+                        <button id="cancelTaskButton" class="task-cancel-button">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-container bottom-ad">
+            <!-- Bottom Ad Space -->
+            <div class="ad-placeholder">
+                <p>Ad Space</p>
+                <!-- Replace with actual Google Ad code in production -->
+            </div>
+        </div>
+
+        <footer>
+            <div class="app-info">
+                <p>Pomodoro Timer © 2025 - Effective Time Management Tool</p>
+                <div class="footer-links">
+                    <p>Improve your <a href="#" title="Time Management Techniques">time management</a>, <a href="#" title="Boost Productivity">productivity</a>, and <a href="#" title="Work-Life Balance">work-life balance</a> with the Pomodoro Technique.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="add-to-home-tutorial" id="addToHomeTutorial">
+        <div class="tutorial-content">
+            <h3>Add to Home Screen</h3>
+            <p>Install this app on your device for quick access!</p>
+            <div class="tutorial-steps">
+                <div class="tutorial-step">
+                    <div class="step-number">1</div>
+                    <p>Tap the share icon in your browser</p>
+                </div>
+                <div class="tutorial-step">
+                    <div class="step-number">2</div>
+                    <p>Select "Add to Home Screen"</p>
+                </div>
+                <div class="tutorial-step">
+                    <div class="step-number">3</div>
+                    <p>Enjoy quick access to the Pomodoro Timer!</p>
+                </div>
+            </div>
+            <button id="closeTutorial" class="tutorial-close-button">Got it!</button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/tasks.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/stats.js"></script>
+    <script>
+        // Hide share button on iOS and Android
+        function isMobileDevice() {
+          return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+          var shareBtn = document.getElementById('shareButton');
+          if (shareBtn && isMobileDevice()) {
+            shareBtn.style.display = 'none';
+          }
+        });
+        // Register service worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Pomodoro Timer",
+  "description": "Boost your productivity with our free Pomodoro Technique timer app. Improve focus, manage time effectively, and reclaim your schedule with this proven time management method.",
+  "applicationCategory": "Productivity",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Customizable work sessions and breaks",
+    "Task management with categories and priorities",
+    "Pomodoro counter with statistics",
+    "Audio notifications with volume control",
+    "Offline functionality"
+  ]
+}
+</script>
+</body>
+</html>
