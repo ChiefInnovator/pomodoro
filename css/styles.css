@@ -952,7 +952,6 @@ footer {
     padding: var(--spacing-xs) var(--spacing-sm);
     min-width: 40px;
     height: 36px;
-    margin-left: var(--spacing-md);
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     outline: none;
