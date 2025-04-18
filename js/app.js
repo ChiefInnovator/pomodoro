@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (taskToggle && taskContainer && closeTasks) {
         taskToggle.addEventListener('click', function() {
-            taskContainer.classList.add('open');
+            taskContainer.classList.toggle('open');
         });
         
         closeTasks.addEventListener('click', function() {
