@@ -64,8 +64,8 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
     padding: var(--spacing-md) 0;
     margin-bottom: var(--spacing-lg);
 }
@@ -913,6 +913,28 @@ footer {
 }
 
 
+.header-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #e85343;
+    letter-spacing: 0.02em;
+    display: block;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    margin-bottom: 2rem;
+}
+
+.header-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+}
+
 .header-actions {
     display: flex;
     align-items: center;
@@ -952,7 +974,7 @@ footer {
 }
 
 .settings-button {
-    font-size: var(--font-xlarge);
+    font-size: var(--font-xxlarge);
     cursor: pointer;
     transition: transform 0.3s;
 }
@@ -1017,7 +1039,4 @@ footer {
     font-style: italic;
 }
 
-/* Hide the "Made with Manus" text */
-[href*="manus"] {
-    display: none !important;
-}
+
