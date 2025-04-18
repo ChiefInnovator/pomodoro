@@ -806,6 +806,44 @@ footer {
         --timer-size: 250px;
         --timer-knob-size: 25px;
     }
+    .timer-display {
+        font-size: 2.5rem;
+    }
+    .app-info {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    /* Make Buy Me a Coffee button smaller */
+    .header-left .bmc-btn-container,
+    .header-left iframe,
+    .header-left script[data-name="bmc-button"] {
+        transform: scale(0.8);
+        transform-origin: left top;
+        max-width: 180px !important;
+        min-width: 0 !important;
+    }
+    /* Stack header actions vertically if needed */
+    .header-row {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: center;
+    }
+    .header-actions {
+        flex-direction: row;
+        gap: var(--spacing-sm);
+        justify-content: center;
+        width: 100%;
+    }
+    .header-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+
+    :root {
+        --timer-size: 250px;
+        --timer-knob-size: 25px;
+    }
     
     .timer-display {
         font-size: 2.5rem;
@@ -818,6 +856,45 @@ footer {
 }
 
 @media (max-width: 480px) {
+    :root {
+        --timer-size: 180px;
+        --timer-knob-size: 16px;
+    }
+    .timer-display {
+        font-size: 1.5rem;
+    }
+    /* Make Buy Me a Coffee button even smaller */
+    .header-left .bmc-btn-container,
+    .header-left iframe,
+    .header-left script[data-name="bmc-button"] {
+        transform: scale(0.65);
+        transform-origin: left top;
+        max-width: 120px !important;
+        min-width: 0 !important;
+    }
+    .header-row {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        align-items: center;
+    }
+    .header-actions {
+        flex-direction: row;
+        gap: var(--spacing-xs);
+        justify-content: center;
+        width: 100%;
+    }
+    .header-title {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    .action-button, .github-icon-button, .settings-button {
+        font-size: 1rem;
+        padding: 0.3em 0.6em;
+        min-width: 36px;
+        height: 32px;
+    }
+}
+
     :root {
         --timer-size: 200px;
         --timer-knob-size: 20px;
