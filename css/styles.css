@@ -835,8 +835,18 @@ footer {
         width: 100%;
     }
     .header-title {
-        font-size: 2rem;
+        font-size: 1.2rem;
+        line-height: 1.15;
         text-align: center;
+        padding: 0 0.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 0.95rem;
+        line-height: 1.1;
+        padding: 0 0.1em;
     }
 }
 
