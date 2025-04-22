@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro Timer | Reclaim Your Time with Effective Time Management</title>
-    <meta name="description" content="Boost your productivity with our free Pomodoro Technique timer app. Improve focus, manage time effectively, and reclaim your schedule with this proven time management method.">
+    <title>About Pomodorowith.ai - Effective Time Management Tool</title>
+    <meta name="description" content="Learn about Pomodorowith.ai, our mission to help you improve productivity with the Pomodoro Technique, and the team behind this effective time management tool.">
     <meta name="keywords" content="Pomodoro Technique, Pomodoro timer, time management, productivity, focus technique, time blocking, reclaim time, work-life balance, productivity app, time management tool">
     <meta name="author" content="Pomodoro Timer App">
-    <meta property="og:title" content="Pomodoro Timer | Effective Time Management Tool">
-    <meta property="og:description" content="Boost your productivity with our free Pomodoro Technique timer app. Improve focus, manage time effectively, and reclaim your schedule.">
+    <meta property="og:title" content="About Pomodorowith.ai - Effective Time Management Tool">
+    <meta property="og:description" content="Learn about Pomodorowith.ai, our mission to help you improve productivity with the Pomodoro Technique, and the team behind this effective time management tool.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/icons/icon-512x512.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pomodoro Timer | Effective Time Management Tool">
-    <meta name="twitter:description" content="Boost your productivity with our free Pomodoro Technique timer app. Improve focus and manage time effectively.">
+    <meta name="twitter:title" content="About Pomodorowith.ai - Effective Time Management Tool">
+    <meta name="twitter:description" content="Learn about Pomodorowith.ai, our mission to help you improve productivity with the Pomodoro Technique, and the team behind this effective time management tool.">
     <meta name="twitter:image" content="assets/icons/icon-512x512.png">
     <!-- Prevent Caching -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -22,7 +22,8 @@
     
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/header-row.css">
+    <link rel="stylesheet" href="css/resources.css">
+    <link rel="stylesheet" href="css/about.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <!-- Add to home screen for Safari on iOS -->
@@ -47,179 +48,86 @@
             <nav class="nav-menu">
                 <button class="menu-toggle">☰ Menu</button>
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="highlights.html">Highlights</a></li>
                     <li><a href="tips.html">Tips & Tricks</a></li>
                     <li><a href="resources.html">Resources</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
                 </ul>
             </nav>
-
-            <div class="header-row">
-                <div class="header-left">
-                    <script
-                        type="text/javascript"
-                        src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
-                        data-name="bmc-button"
-                        data-slug="richcrane"
-                        data-color="#5F7FFF"
-                        data-emoji=""
-                        data-font="Cookie"
-                        data-text="Buy me a coffee"
-                        data-outline-color="#000000"
-                        data-font-color="#ffffff"
-                        data-coffee-color="#FFDD00">
-                    </script>
-                </div>
-                <div class="header-right header-actions">
-                    <button id="addToHomeButton" class="action-button" aria-label="Add to Home Screen" title="Add to Home Screen">
-                        <!-- Home icon SVG (iOS style) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7"></path><path d="M9 22V12H15V22"></path></svg>
-                    </button>
-                    <button id="shareButton" class="action-button" aria-label="Share" title="Share">
-                        <!-- Share icon SVG (iOS style) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
-                    </button>
-                    <a href="https://github.com/ChiefInnovator/pomodoro" target="_blank" rel="noopener noreferrer" class="github-icon-button" aria-label="View on GitHub" title="View on GitHub">
-                        <!-- GitHub Mark SVG -->
-                        <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-                        </svg>
-                    </a>
-                    <div class="settings-button" id="settingsButton">⚙️</div>
-                </div>
-            </div>
         </header>
 
-        <main>
-            <div class="timer-container">
-                <div class="timer-wrapper">
-                    <div class="timer" id="timer">
-                        <div class="timer-face">
-                            <div class="timer-display">
-                                <span id="minutes">25</span>:<span id="seconds">00</span>
+        <main class="about-main">
+            <div class="about-container">
+                <h1>About Pomodorowith.ai</h1>
+                
+                <section class="about-section">
+                    <h2>Our Mission</h2>
+                    <p>Pomodorowith.ai was created to provide individuals with a simple, reliable tool for implementing the Pomodoro Technique, along with comprehensive educational resources about effective time management, productivity enhancement, and work-life balance strategies.</p>
+                    <p>Our goal is to help users make informed decisions about when and how to use the Pomodoro Technique in their daily lives, enabling them to work more efficiently, reduce burnout, and reclaim control over their time.</p>
+                </section>
+
+                <section class="about-section creator-section">
+                    <h2>About the Creator</h2>
+                    <div class="creator-profile">
+                        <div class="creator-image">
+                            <img src="assets/images/richard_crane_profile.jpeg" alt="Richard Crane" class="profile-image">
+                        </div>
+                        <div class="creator-info">
+                            <h3>Richard Crane</h3>
+                            <p class="creator-title">Founder/CTO of MILL5</p>
+                            
+                            <p class="creator-bio">As the Founder and Chief Technology Officer of MILL5, Rich Crane has been instrumental in driving MILL5's success as a leading AI and software consulting company, for the last decade. Richard graduated Summa Cum Laude with a bachelor's and master's degree from Drexel University; along with a former Adjunct Professor at Drexel University.</p>
+                            
+                            <div class="creator-contact">
+                                <a href="mailto:support@richcrane.ai" class="contact-link">
+                                    <span class="contact-icon">✉️</span>
+                                    support@richcrane.ai
+                                </a>
+                                <a href="https://www.mill5.com" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                    <span class="contact-icon">🌐</span>
+                                    www.mill5.com
+                                </a>
                             </div>
-                            <div class="timer-knob" id="timerKnob"></div>
-                            <div class="timer-progress" id="timerProgress"></div>
                         </div>
                     </div>
-                    <div class="timer-controls">
-                        <button id="startButton" class="control-button">Start</button>
-                        <button id="pauseButton" class="control-button" disabled>Pause</button>
-                        <button id="resetButton" class="control-button">Reset</button>
-                    </div>
-                </div>
-                <div class="session-info">
-                    <div class="session-type" id="sessionType">Work Session</div>
-                    <div class="pomodoro-counter">
-                        Pomodoros: <span id="pomodoroCount">0</span>
-                    </div>
-                </div>
-                <div class="technique-description">
-                    <p>The <strong>Pomodoro Technique</strong> is a time management method that helps you <em>reclaim your time</em> and improve focus. Work in 25-minute intervals, followed by short breaks to maximize productivity and prevent burnout.</p>
-                </div>
-            </div>
+                </section>
 
-            <button id="taskToggle" class="task-toggle">Manage Tasks</button>
-
-            <div class="task-container" id="taskContainer">
-                <button class="close-tasks" id="closeTasks">×</button>
-                <h2>Manage Tasks Effectively</h2>
-                <div class="task-controls">
-                    <button id="addTaskButton" class="task-button">Add Task</button>
-                    <div class="task-filter">
-                        <label for="categoryFilter">Filter:</label>
-                        <select id="categoryFilter">
-                            <option value="all">All Categories</option>
-                        </select>
+                <section class="about-section">
+                    <h2>About the Tool</h2>
+                    <p>The Pomodorowith.ai timer was developed to address a common need in productivity and time management: implementing the proven Pomodoro Technique in a user-friendly, accessible way.</p>
+                    
+                    <div class="features-list">
+                        <h3>Key features of our tool include:</h3>
+                        <ul>
+                            <li>Simple, intuitive interface for quick time management</li>
+                            <li>Customizable work and break durations</li>
+                            <li>Task management system with categories and priorities</li>
+                            <li>Progress tracking and productivity statistics</li>
+                            <li>Comprehensive documentation and educational resources</li>
+                            <li>Mobile-friendly design with offline capabilities</li>
+                        </ul>
                     </div>
-                </div>
-                <div class="task-list" id="taskList">
-                    <!-- Tasks will be added here dynamically -->
-                </div>
+                </section>
+
+                <section class="about-section">
+                    <h2>Privacy and Security</h2>
+                    <p>At Pomodorowith.ai, we take your privacy and security seriously:</p>
+                    
+                    <ul class="privacy-list">
+                        <li>All task data is stored locally in your browser</li>
+                        <li>Your personal information is never uploaded to our servers</li>
+                        <li>We don't track your productivity metrics or work habits</li>
+                        <li>No account or registration is required to use our tool</li>
+                    </ul>
+                </section>
+
+                <section class="about-section">
+                    <h2>Feedback and Suggestions</h2>
+                    <p>We're constantly working to improve Pomodorowith.ai and would love to hear your feedback, suggestions, or feature requests. Please feel free to contact us at <a href="mailto:support@richcrane.ai">support@richcrane.ai</a> or visit our <a href="https://github.com/ChiefInnovator/pomodoro" target="_blank" rel="noopener noreferrer">GitHub repository</a> to contribute directly to the project.</p>
+                </section>
             </div>
         </main>
-
-        <div class="settings-modal" id="settingsModal">
-            <div class="settings-content">
-                <h2>Settings</h2>
-                <div class="settings-close" id="closeSettings">×</div>
-                <div class="settings-section">
-                    <h3>Timer Settings</h3>
-                    <div class="setting-item">
-                        <label for="workDuration">Work Duration (minutes):</label>
-                        <input type="number" id="workDuration" min="1" max="60" value="25">
-                    </div>
-                    <div class="setting-item">
-                        <label for="shortBreakDuration">Short Break (minutes):</label>
-                        <input type="number" id="shortBreakDuration" min="1" max="30" value="5">
-                    </div>
-                    <div class="setting-item">
-                        <label for="longBreakDuration">Long Break (minutes):</label>
-                        <input type="number" id="longBreakDuration" min="1" max="60" value="15">
-                    </div>
-                    <div class="setting-item">
-                        <label for="longBreakInterval">Long Break After (pomodoros):</label>
-                        <input type="number" id="longBreakInterval" min="1" max="10" value="4">
-                    </div>
-                </div>
-                <div class="settings-section">
-                    <h3>Sound Settings</h3>
-                    <div class="setting-item">
-                        <label for="volumeControl">Volume:</label>
-                        <input type="range" id="volumeControl" min="0" max="100" value="50">
-                    </div>
-                    <div class="setting-item">
-                        <label for="muteToggle">Mute:</label>
-                        <input type="checkbox" id="muteToggle">
-                    </div>
-                </div>
-                <button id="saveSettings" class="settings-save">Save Settings</button>
-            </div>
-        </div>
-
-        <div class="task-modal" id="taskModal">
-            <div class="task-modal-content">
-                <h2 id="taskModalTitle">Add Task</h2>
-                <div class="task-close" id="closeTaskModal">×</div>
-                <div class="task-form">
-                    <div class="form-group">
-                        <label for="taskTitle">Task Title:</label>
-                        <input type="text" id="taskTitle" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="taskCategory">Category:</label>
-                        <input type="text" id="taskCategory" list="categories" placeholder="Enter or select category">
-                        <datalist id="categories">
-                            <option value="Work">
-                            <option value="Study">
-                            <option value="Personal">
-                        </datalist>
-                    </div>
-                    <div class="form-group">
-                        <label for="taskPriority">Priority:</label>
-                        <select id="taskPriority">
-                            <option value="low">Low</option>
-                            <option value="medium" selected>Medium</option>
-                            <option value="high">High</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="taskNotes">Notes:</label>
-                        <textarea id="taskNotes" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="estimatedPomodoros">Estimated Pomodoros:</label>
-                        <input type="number" id="estimatedPomodoros" min="1" value="1">
-                    </div>
-                    <input type="hidden" id="taskId">
-                    <div class="task-form-buttons">
-                        <button id="saveTaskButton" class="task-save-button">Save Task</button>
-                        <button id="cancelTaskButton" class="task-cancel-button">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="ad-container bottom-ad">
             <!-- Bottom Ad Space -->
@@ -232,38 +140,12 @@
         <footer>
             <div class="footer-center">
                 Pomodoro Timer © 2025 Richard Crane – Effective Time Management Tool &nbsp;|&nbsp;
-                Improve your <a href="index.html#" title="Time Management Techniques">time management</a>, <a href="index.html#" title="Boost Productivity">productivity</a>, and <a href="index.html#" title="Work-Life Balance">work-life balance</a> with the Pomodoro Technique.
+                Improve your <a href="about.html#" title="Time Management Techniques">time management</a>, <a href="about.html#" title="Boost Productivity">productivity</a>, and <a href="about.html#" title="Work-Life Balance">work-life balance</a> with the Pomodoro Technique.
             </div>
         </footer>
     </div>
 
-    <div class="add-to-home-tutorial" id="addToHomeTutorial">
-        <div class="tutorial-content">
-            <h3>Add to Home Screen</h3>
-            <p>Install this app on your device for quick access!</p>
-            <div class="tutorial-steps">
-                <div class="tutorial-step">
-                    <div class="step-number">1</div>
-                    <p>Tap the share icon in your browser</p>
-                </div>
-                <div class="tutorial-step">
-                    <div class="step-number">2</div>
-                    <p>Select "Add to Home Screen"</p>
-                </div>
-                <div class="tutorial-step">
-                    <div class="step-number">3</div>
-                    <p>Enjoy quick access to the Pomodoro Timer!</p>
-                </div>
-            </div>
-            <button id="closeTutorial" class="tutorial-close-button">Got it!</button>
-        </div>
-    </div>
-
     <script src="js/app.js"></script>
-    <script src="js/timer.js"></script>
-    <script src="js/tasks.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/stats.js"></script>
     <script src="js/menu.js"></script>
     <script>
         // Hide share button on iOS and Android
@@ -294,23 +176,27 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Pomodoro Timer",
-  "description": "Boost your productivity with our free Pomodoro Technique timer app. Improve focus, manage time effectively, and reclaim your schedule with this proven time management method.",
-  "applicationCategory": "Productivity",
-  "operatingSystem": "Any",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
+  "@type": "AboutPage",
+  "name": "About Pomodorowith.ai",
+  "description": "Learn about Pomodorowith.ai, our mission to help you improve productivity with the Pomodoro Technique, and the team behind this effective time management tool.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pomodoro Timer App",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "assets/icons/icon-512x512.png"
+    }
   },
-  "featureList": [
-    "Customizable work sessions and breaks",
-    "Task management with categories and priorities",
-    "Pomodoro counter with statistics",
-    "Audio notifications with volume control",
-    "Offline functionality"
-  ]
+  "author": {
+    "@type": "Person",
+    "name": "Richard Crane",
+    "jobTitle": "Founder/CTO",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "MILL5"
+    },
+    "image": "assets/images/richard_crane_profile.jpeg"
+  }
 }
 </script>
 <footer-btn></footer-btn>

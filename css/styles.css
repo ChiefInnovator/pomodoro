@@ -67,7 +67,7 @@ header {
     flex-direction: column;
     align-items: stretch;
     padding: var(--spacing-md) 0;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
 }
 
 h1 {
