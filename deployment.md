@@ -70,29 +70,6 @@ const appState = {
 2. Drag and drop the project folder to the Netlify dashboard
 3. Configure your domain settings as needed
 
-## Google Ads Integration
-
-To replace the placeholder ad with an actual Google AdSense ad:
-
-1. Sign up for Google AdSense and create an ad unit
-2. Replace the placeholder code in `index.html`:
-
-```html
-<div class="ad-container">
-    <!-- Replace this with your actual Google AdSense code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="YOUR-AD-CLIENT-ID"
-         data-ad-slot="YOUR-AD-SLOT-ID"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
-```
-
 ## Troubleshooting
 
 ### Service Worker Issues

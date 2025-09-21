@@ -626,28 +626,6 @@ main {
     background-color: var(--text-color);
 }
 
-/* Ad Container Styles */
-.ad-container {
-    margin: var(--spacing-lg) 0;
-    padding: var(--spacing-md);
-    background-color: var(--white);
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 2px 5px var(--shadow-color);
-    text-align: center;
-}
-
-.ad-placeholder {
-    width: 100%;
-    height: 90px;
-    background-color: var(--primary-light);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-light);
-    border: 1px dashed var(--text-light);
-    border-radius: var(--border-radius-sm);
-}
-
 /* Footer Styles */
 footer {
     margin-top: auto;
@@ -1124,5 +1102,4 @@ footer {
     color: var(--text-light);
     font-style: italic;
 }
-
 
