@@ -25,8 +25,6 @@ function initTasks() {
     
     // Populate category filter
     populateCategoryFilter();
-    
-    console.log('Tasks initialized');
 }
 
 // Load tasks from local storage
@@ -35,12 +33,11 @@ function loadTasks() {
     if (savedTasks) {
         try {
             tasksState.tasks = JSON.parse(savedTasks);
-            console.log('Tasks loaded from local storage');
             
             // Extract unique categories
             updateCategories();
         } catch (error) {
-            console.error('Error loading tasks:', error);
+            // Error loading tasks - use empty array
         }
     }
 }
@@ -126,6 +123,7 @@ function createTaskElement(task) {
     const taskElement = document.createElement('div');
     taskElement.className = `task-item ${task.completed ? 'completed' : ''} ${appState.currentTaskId === task.id ? 'active-task' : ''}`;
     taskElement.dataset.id = task.id;
+    taskElement.dataset.priority = task.priority;
     
     // Create checkbox
     const checkbox = document.createElement('input');
@@ -190,49 +188,51 @@ function createTaskElement(task) {
     
     // Add Start Working button
     const startWorkingButton = document.createElement('button');
-    startWorkingButton.className = 'task-action-button start-working-button';
-    startWorkingButton.innerHTML = '▶️';
+    startWorkingButton.className = 'task-action-button start';
+    startWorkingButton.type = 'button';
+    startWorkingButton.innerHTML = '▶';
     startWorkingButton.title = 'Start Working on this Task';
-    startWorkingButton.addEventListener('click', () => startWorkingOnTask(task.id));
+    startWorkingButton.onclick = function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        startWorkingOnTask(task.id);
+        return false;
+    };
     
     const editButton = document.createElement('button');
-    editButton.className = 'task-action-button';
-    editButton.innerHTML = '✏️';
+    editButton.className = 'task-action-button edit';
+    editButton.type = 'button';
+    editButton.innerHTML = '✎';
     editButton.title = 'Edit Task';
-    editButton.addEventListener('click', () => editTask(task.id));
+    editButton.onclick = function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        editTask(task.id);
+        return false;
+    };
     
     const deleteButton = document.createElement('button');
-    deleteButton.className = 'task-action-button';
-    deleteButton.innerHTML = '🗑️';
+    deleteButton.className = 'task-action-button delete';
+    deleteButton.type = 'button';
+    deleteButton.innerHTML = '✕';
     deleteButton.title = 'Delete Task';
-    deleteButton.addEventListener('click', () => deleteTask(task.id));
-    
-    const expandButton = document.createElement('button');
-    expandButton.className = 'task-action-button';
-    expandButton.innerHTML = task.notes && task.notes.trim() !== '' ? '🔽' : '';
-    expandButton.title = 'Show Notes';
-    if (task.notes && task.notes.trim() !== '') {
-        expandButton.addEventListener('click', () => {
-            taskElement.classList.toggle('expanded');
-            expandButton.innerHTML = taskElement.classList.contains('expanded') ? '🔼' : '🔽';
-        });
-    }
+    deleteButton.onclick = function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        deleteTask(task.id);
+        return false;
+    };
     
     taskActions.appendChild(startWorkingButton);
     taskActions.appendChild(editButton);
     taskActions.appendChild(deleteButton);
-    taskActions.appendChild(expandButton);
     
-    // Assemble task element
-    taskContent.appendChild(taskHeader);
-    taskContent.appendChild(taskDetails);
-    if (taskNotes) {
-        taskContent.appendChild(taskNotes);
-    }
-    
+    // Assemble task element - first row: checkbox, header (title + category), actions
     taskElement.appendChild(checkbox);
-    taskElement.appendChild(taskContent);
+    taskElement.appendChild(taskHeader);
     taskElement.appendChild(taskActions);
+    // Second row: details (priority + pomodoros)
+    taskElement.appendChild(taskDetails);
     
     return taskElement;
 }
@@ -306,8 +306,6 @@ function saveTask() {
     
     // Close modal
     closeTaskModal();
-    
-    console.log(`Task ${isEditing ? 'updated' : 'added'}: ${task.title}`);
 }
 
 // Edit task
@@ -331,20 +329,22 @@ function editTask(taskId) {
 
 // Delete task
 function deleteTask(taskId) {
-    if (confirm('Are you sure you want to delete this task?')) {
-        tasksState.tasks = tasksState.tasks.filter(t => t.id !== taskId);
-        
-        // Save to local storage
-        saveTasks();
-        
-        // Update categories
-        updateCategories();
-        
-        // Render tasks
-        renderTasks();
-        
-        console.log(`Task deleted: ${taskId}`);
+    // Remove task from array
+    tasksState.tasks = tasksState.tasks.filter(t => t.id !== taskId);
+    
+    // If the deleted task was the current task, clear it
+    if (appState.currentTaskId === taskId) {
+        appState.currentTaskId = null;
     }
+    
+    // Save to local storage
+    saveTasks();
+    
+    // Update categories
+    updateCategories();
+    
+    // Render tasks
+    renderTasks();
 }
 
 // Toggle task completion
@@ -358,8 +358,6 @@ function toggleTaskCompletion(taskId) {
         
         // Render tasks
         renderTasks();
-        
-        console.log(`Task ${tasksState.tasks[taskIndex].completed ? 'completed' : 'uncompleted'}: ${tasksState.tasks[taskIndex].title}`);
     }
 }
 
@@ -370,25 +368,22 @@ function filterTasks() {
 
 // Increment completed pomodoros for the current task
 function incrementTaskPomodoros() {
+    console.log('incrementTaskPomodoros called, currentTaskId:', appState.currentTaskId);
     if (appState.currentTaskId) {
         const taskIndex = tasksState.tasks.findIndex(t => t.id === appState.currentTaskId);
+        console.log('Found task at index:', taskIndex);
         if (taskIndex !== -1) {
             tasksState.tasks[taskIndex].completedPomodoros++;
+            console.log('New pomodoro count:', tasksState.tasks[taskIndex].completedPomodoros);
             
             // Save to local storage
             saveTasks();
             
             // Render tasks
             renderTasks();
-            
-            console.log(`Pomodoro completed for task: ${tasksState.tasks[taskIndex].title}`);
         }
     }
 }
-
-// Export for other modules
-window.tasksState = tasksState;
-window.incrementTaskPomodoros = incrementTaskPomodoros;
 
 // Start working on a specific task
 function startWorkingOnTask(taskId) {
@@ -411,8 +406,6 @@ function startWorkingOnTask(taskId) {
     // Reset and start the timer
     resetTimer();
     startTimer();
-    
-    console.log(`Started working on task: ${task.title}`);
     
     // Re-render tasks to show active task
     renderTasks();
@@ -439,9 +432,10 @@ function updateCurrentTaskDisplay() {
     if (appState.currentTaskId) {
         const task = tasksState.tasks.find(t => t.id === appState.currentTaskId);
         if (task) {
+            const safeTitle = typeof sanitizeHTML === 'function' ? sanitizeHTML(task.title) : task.title.replace(/</g, '&lt;').replace(/>/g, '&gt;');
             currentTaskDisplay.innerHTML = `
                 <span class="task-icon">🎯</span>
-                <span>Working on: ${task.title}</span>
+                <span>Working on: ${safeTitle}</span>
             `;
         } else {
             // Task might have been deleted
@@ -471,3 +465,8 @@ function clearCurrentTask() {
     updateCurrentTaskDisplay();
     renderTasks();
 }
+
+// Export for other modules
+window.tasksState = tasksState;
+window.incrementTaskPomodoros = incrementTaskPomodoros;
+window.handleWorkSessionCompletion = handleWorkSessionCompletion;

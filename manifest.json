@@ -6,6 +6,7 @@
   "display": "standalone",
   "background_color": "#ecf0f1",
   "theme_color": "#e74c3c",
+  "categories": ["productivity", "utilities"],
   "icons": [
     {
       "src": "assets/icons/icon-192x192.png",
@@ -13,9 +14,19 @@
       "type": "image/png"
     },
     {
-      "src": "assets/icons/icon-512x512.png",
+      "src": "assets/icons/tomatotimer-icon.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Timer",
+      "short_name": "Start",
+      "description": "Start a new Pomodoro session",
+      "url": "/index.html",
+      "icons": [{ "src": "assets/icons/icon-192x192.png", "sizes": "192x192" }]
     }
   ]
 }

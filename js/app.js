@@ -24,8 +24,7 @@ const elements = {
         seconds: document.getElementById('seconds'),
         knob: document.getElementById('timerKnob'),
         progress: document.getElementById('timerProgress'),
-        startButton: document.getElementById('startButton'),
-        pauseButton: document.getElementById('pauseButton'),
+        startPauseButton: document.getElementById('startPauseButton'),
         resetButton: document.getElementById('resetButton'),
         sessionType: document.getElementById('sessionType'),
         pomodoroCount: document.getElementById('pomodoroCount')
@@ -102,9 +101,6 @@ function initApp() {
     if (typeof updateCurrentTaskDisplay === 'function') {
         updateCurrentTaskDisplay();
     }
-    
-    // Log initialization
-    console.log('Pomodoro Timer initialized');
 }
 
 // Load settings from local storage
@@ -114,9 +110,8 @@ function loadSettings() {
         try {
             const parsedSettings = JSON.parse(savedSettings);
             appState.settings = { ...appState.settings, ...parsedSettings };
-            console.log('Settings loaded from local storage');
         } catch (error) {
-            console.error('Error loading settings:', error);
+            // Error loading settings - use defaults
         }
     }
     
@@ -177,12 +172,21 @@ function updateSessionType() {
 
 // Update button states
 function updateButtonStates() {
+    const button = elements.timer.startPauseButton;
+    const playIcon = button.querySelector('.play-icon');
+    const pauseIcon = button.querySelector('.pause-icon');
+    const buttonText = button.querySelector('.button-text');
+    
     if (appState.isRunning) {
-        elements.timer.startButton.disabled = true;
-        elements.timer.pauseButton.disabled = false;
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'inline';
+        buttonText.textContent = 'Pause';
+        button.classList.add('is-running');
     } else {
-        elements.timer.startButton.disabled = false;
-        elements.timer.pauseButton.disabled = true;
+        playIcon.style.display = 'inline';
+        pauseIcon.style.display = 'none';
+        buttonText.textContent = 'Start';
+        button.classList.remove('is-running');
     }
 }
 
@@ -206,9 +210,7 @@ function initShare() {
                 title: 'Pomodoro Timer',
                 text: 'Check out this awesome Pomodoro Timer app!',
                 url: window.location.href
-            })
-            .then(() => console.log('Shared successfully'))
-            .catch((error) => console.log('Error sharing:', error));
+            }).catch(() => { /* User cancelled or error */ });
         } else {
             alert('Web Share API not supported in your browser. You can copy the URL manually.');
         }
@@ -219,7 +221,7 @@ function initShare() {
 function playSound(sound) {
     if (!appState.settings.mute) {
         sound.volume = appState.settings.volume / 100;
-        sound.play().catch(error => console.log('Error playing sound:', error));
+        sound.play().catch(() => { /* Silent fail */ });
     }
 }
 

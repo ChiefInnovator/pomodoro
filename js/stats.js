@@ -20,8 +20,6 @@ const statsState = {
 function initStats() {
     // Load stats from local storage
     loadStats();
-    
-    console.log('Stats initialized');
 }
 
 // Load stats from local storage
@@ -68,10 +66,8 @@ function loadStats() {
             statsState.daily = parsedStats.daily;
             statsState.weekly = parsedStats.weekly;
             statsState.history = parsedStats.history;
-            
-            console.log('Stats loaded from local storage');
         } catch (error) {
-            console.error('Error loading stats:', error);
+            // Error loading stats - use defaults
         }
     }
 }
@@ -98,8 +94,6 @@ function updateStats() {
     
     // Save stats to local storage
     saveStats();
-    
-    console.log('Stats updated');
 }
 
 // Get formatted stats for display
@@ -122,7 +116,7 @@ function getFormattedStats() {
 // Generate stats chart (placeholder for future implementation)
 function generateStatsChart() {
     // This would use a charting library to visualize the stats
-    console.log('Stats chart would be generated here');
+    // Placeholder for future implementation
 }
 
 // Export for other modules

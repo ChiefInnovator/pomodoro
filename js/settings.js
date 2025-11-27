@@ -12,8 +12,6 @@ function initSettings() {
     
     // Populate settings form with current values
     populateSettingsForm();
-    
-    console.log('Settings initialized');
 }
 
 // Open settings modal
@@ -81,8 +79,6 @@ function saveSettingsFromModal() {
     
     // Close modal
     closeSettingsModal();
-    
-    console.log('Settings saved');
 }
 
 // Update volume preview when slider is moved
@@ -93,7 +89,7 @@ function updateVolumePreview() {
     if (!appState.settings.mute) {
         const previewSound = sounds.buttonClick.cloneNode();
         previewSound.volume = volume / 100;
-        previewSound.play().catch(error => console.log('Error playing sound:', error));
+        previewSound.play().catch(() => { /* Silent fail */ });
     }
 }
 
@@ -105,21 +101,18 @@ function updateMuteState() {
     if (!muted) {
         const previewSound = sounds.buttonClick.cloneNode();
         previewSound.volume = parseInt(elements.settings.volumeControl.value, 10) / 100;
-        previewSound.play().catch(error => console.log('Error playing sound:', error));
+        previewSound.play().catch(() => { /* Silent fail */ });
     }
 }
 
 // Request notification permission
 function requestNotificationPermission() {
     if (!("Notification" in window)) {
-        console.log("This browser does not support notifications");
         return;
     }
     
     if (Notification.permission !== "granted" && Notification.permission !== "denied") {
-        Notification.requestPermission().then(permission => {
-            console.log(`Notification permission ${permission}`);
-        });
+        Notification.requestPermission();
     }
 }
 

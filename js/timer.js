@@ -16,16 +16,33 @@ function initTimer() {
     // Set initial timer values based on settings
     resetTimer();
     
-    // Add event listeners
-    elements.timer.startButton.addEventListener('click', startTimer);
-    elements.timer.pauseButton.addEventListener('click', pauseTimer);
-    elements.timer.resetButton.addEventListener('click', resetTimer);
+    // Add event listeners - single button toggles start/pause
+    elements.timer.startPauseButton.addEventListener('click', toggleTimer);
+    elements.timer.resetButton.addEventListener('click', () => resetTimer(true));
     elements.timer.knob.addEventListener('click', windTimer);
+    
+    // Add keyboard support for timer knob
+    elements.timer.knob.setAttribute('tabindex', '0');
+    elements.timer.knob.setAttribute('role', 'button');
+    elements.timer.knob.setAttribute('aria-label', 'Wind timer to start');
+    elements.timer.knob.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            windTimer();
+        }
+    });
     
     // Update timer display
     updateTimerDisplay();
-    
-    console.log('Timer initialized');
+}
+
+// Toggle between start and pause
+function toggleTimer() {
+    if (appState.isRunning) {
+        pauseTimer();
+    } else {
+        startTimer();
+    }
 }
 
 // Start the timer
@@ -57,8 +74,6 @@ function startTimer() {
         // Update progress indicator
         updateTimerProgress();
     }, 1000);
-    
-    console.log('Timer started');
 }
 
 // Pause the timer
@@ -71,18 +86,24 @@ function pauseTimer() {
     
     // Play button click sound
     playSound(sounds.buttonClick);
-    
-    console.log('Timer paused');
 }
 
 // Reset the timer
-function resetTimer() {
+function resetTimer(fullReset = false) {
     // Clear any existing timer
     if (timerState.timerId) {
         clearInterval(timerState.timerId);
     }
     
     appState.isRunning = false;
+    
+    // Full reset (from button click) - reset everything
+    if (fullReset) {
+        appState.pomodoroCount = 0;
+        elements.timer.pomodoroCount.textContent = appState.pomodoroCount;
+        appState.currentSession = 'work';
+        updateSessionType();
+    }
     
     // Set timer duration based on current session type
     switch (appState.currentSession) {
@@ -108,8 +129,6 @@ function resetTimer() {
     updateTimerDisplay();
     updateButtonStates();
     resetTimerProgress();
-    
-    console.log('Timer reset');
 }
 
 // Complete the current timer session
@@ -154,8 +173,6 @@ function completeTimer() {
     
     // Show notification if available
     showNotification();
-    
-    console.log('Timer completed');
 }
 
 // Show browser notification
@@ -200,15 +217,17 @@ function windTimer() {
     }, 2000);
 }
 
-// Update timer progress indicator
+// Update timer progress indicator (SVG ring)
 function updateTimerProgress() {
-    const progressPercentage = (1 - timerState.currentSeconds / timerState.totalSeconds) * 360;
-    elements.timer.progress.style.transform = `rotate(${progressPercentage}deg)`;
+    const circumference = 2 * Math.PI * 140; // 879.65
+    const progressPercentage = timerState.currentSeconds / timerState.totalSeconds;
+    const offset = circumference * progressPercentage;
+    elements.timer.progress.style.strokeDashoffset = offset;
 }
 
 // Reset timer progress indicator
 function resetTimerProgress() {
-    elements.timer.progress.style.transform = 'rotate(0deg)';
+    elements.timer.progress.style.strokeDashoffset = 0;
 }
 
 // Export for other modules

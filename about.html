@@ -37,14 +37,18 @@
     <div class="app-container">
         <header>
             <nav class="nav-menu">
-                <button class="menu-toggle">☰ Menu</button>
-                <ul>
+                <button class="menu-toggle" aria-label="Toggle navigation menu">☰ Menu</button>
+                <ul id="nav-menu-list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="highlights.html">Highlights</a></li>
                     <li><a href="tips.html">Tips & Tricks</a></li>
                     <li><a href="resources.html">Resources</a></li>
                     <li><a href="about.html" class="active">About</a></li>
                 </ul>
+                <a href="https://www.buymeacoffee.com/richcrane" target="_blank" rel="noopener noreferrer" class="bmc-button" aria-label="Buy me a coffee">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    <span>Buy me a coffee</span>
+                </a>
             </nav>
         </header>
 
@@ -66,9 +70,9 @@
                         </div>
                         <div class="creator-info">
                             <h3>Richard Crane</h3>
-                            <p class="creator-title">Founder/CTO of MILL5</p>
+                            <p class="creator-title">Founder & Chief AI Officer of MILL5</p>
                             
-                            <p class="creator-bio">As the Founder and Chief Technology Officer of MILL5, Rich Crane has been instrumental in driving MILL5's success as a leading AI and software consulting company, for the last decade. Richard graduated Summa Cum Laude with a bachelor's and master's degree from Drexel University; along with a former Adjunct Professor at Drexel University.</p>
+                            <p class="creator-bio">As the Founder and Chief AI Officer of MILL5, Rich Crane has been instrumental in driving MILL5's success as a leading AI and software consulting company, for the last decade. Richard graduated Summa Cum Laude with a bachelor's and master's degree from Drexel University and was formerly an Adjunct Professor at Drexel University.</p>
                             
                             <div class="creator-contact">
                                 <a href="mailto:support@richcrane.ai" class="contact-link">
@@ -123,38 +127,13 @@
         <footer>
             <div class="footer-center">
                 Pomodoro Timer © 2025 Richard Crane – Effective Time Management Tool &nbsp;|&nbsp;
-                Improve your <a href="about.html#" title="Time Management Techniques">time management</a>, <a href="about.html#" title="Boost Productivity">productivity</a>, and <a href="about.html#" title="Work-Life Balance">work-life balance</a> with the Pomodoro Technique.
+                Improve your <a href="tips.html" title="Time Management Techniques">time management</a>, <a href="tips.html#planning-preparation" title="Boost Productivity">productivity</a>, and <a href="tips.html#effective-breaks" title="Work-Life Balance">work-life balance</a> with the Pomodoro Technique.
             </div>
         </footer>
     </div>
 
-    <script src="js/app.js"></script>
     <script src="js/menu.js"></script>
-
-<script>
-        // Hide share button on iOS and Android
-        function isMobileDevice() {
-          return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-          var shareBtn = document.getElementById('shareButton');
-          if (shareBtn && isMobileDevice()) {
-            shareBtn.style.display = 'none';
-          }
-        });
-        // Register service worker for offline functionality
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(error => {
-                        console.log('ServiceWorker registration failed: ', error);
-                    });
-            });
-        }
-    </script>
+    <script src="js/utils.js"></script>
 
 <!-- Structured Data for SEO -->
 <script type="application/ld+json">
@@ -174,7 +153,7 @@
   "author": {
     "@type": "Person",
     "name": "Richard Crane",
-    "jobTitle": "Founder/CTO",
+    "jobTitle": "Founder & Chief AI Officer",
     "worksFor": {
       "@type": "Organization",
       "name": "MILL5"

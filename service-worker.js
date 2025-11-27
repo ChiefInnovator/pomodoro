@@ -1,47 +1,52 @@
 // service-worker.js - Service Worker for offline functionality
 // Caches app resources for offline use
 
-const CACHE_NAME = 'pomodoro-app-v1';
+const CACHE_NAME = 'pomodoro-app-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
+  '/about.html',
+  '/highlights.html',
+  '/tips.html',
+  '/resources.html',
   '/css/styles.css',
+  '/css/menu.css',
+  '/css/header-row.css',
+  '/css/about.css',
+  '/css/highlights.css',
+  '/css/tips.css',
+  '/css/resources.css',
   '/js/app.js',
   '/js/timer.js',
   '/js/tasks.js',
   '/js/settings.js',
   '/js/stats.js',
-  '/sounds/placeholder/work-complete.mp3',
-  '/sounds/placeholder/break-complete.mp3',
-  '/sounds/placeholder/button-click.mp3',
+  '/js/menu.js',
+  '/js/utils.js',
+  '/sounds/work-complete.mp3',
+  '/sounds/break-complete.mp3',
+  '/sounds/button-click.mp3',
   '/assets/icons/icon-192x192.png',
-  '/assets/icons/icon-512x512.png',
-  '/assets/favicon.ico'
+  '/assets/icons/tomatotimer-icon.png',
+  '/assets/favicon.ico',
+  '/manifest.json'
 ];
 
 // Install event - cache assets
 self.addEventListener('install', event => {
-  console.log('Service Worker: Installing...');
-  
   // Skip waiting to ensure the new service worker activates immediately
   self.skipWaiting();
   
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('Service Worker: Caching assets...');
         return cache.addAll(ASSETS_TO_CACHE);
-      })
-      .then(() => {
-        console.log('Service Worker: Assets cached');
       })
   );
 });
 
 // Activate event - clean up old caches
 self.addEventListener('activate', event => {
-  console.log('Service Worker: Activating...');
-  
   // Claim clients to ensure the service worker controls all clients
   event.waitUntil(self.clients.claim());
   
@@ -51,7 +56,6 @@ self.addEventListener('activate', event => {
       return Promise.all(
         cacheNames.map(cacheName => {
           if (cacheName !== CACHE_NAME) {
-            console.log('Service Worker: Clearing old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
@@ -94,9 +98,7 @@ self.addEventListener('fetch', event => {
             
             return response;
           })
-          .catch(error => {
-            console.log('Service Worker: Fetch failed:', error);
-            
+          .catch(() => {
             // For navigation requests, return the offline page
             if (event.request.mode === 'navigate') {
               return caches.match('/index.html');
