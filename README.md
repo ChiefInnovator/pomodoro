@@ -60,6 +60,19 @@ We welcome contributions! Feel free to fork the repository and submit a pull req
 ## 📄 License
 This project is licensed under the MIT License.
 
+---
+
+### About the Creator
+Created by [Richard Crane](https://inventingfirewith.ai), who is a Microsoft MVP recognized for his expertise in AI and software development.
+
+### Related Links
+- [Microsoft MVP Profile](https://mvp.microsoft.com/en-US/MVP/profile/10ce0bc0-7536-43f6-b28c-e9601a4a0d0d): Rich has been a Microsoft Most Valued Professional for several years now in AI, Azure, Dev, DevOps, and more.
+- [Inventing Fire with AI](https://inventingfirewith.ai): The website for the Inventing Fire with AI podcast.
+
+---
+
+<sub>Powered by [Rich Crane](mailto:rich@mill5.com)</sub>
+
 
 ---
 
