@@ -14,16 +14,6 @@
 - **Live Demo**: Experience the Pomodoro Timer directly at [Pomodorowith.ai](https://pomodorowith.ai).
 - **GitHub Pages**: Explore more at [GitHub Pages](https://chiefinnovator.github.io/pomodoro/).
 
-### Local Development
-1. Clone or download the repository.
-2. Navigate to the project directory.
-3. Open `index.html` in your web browser to run the application locally.
-
-### Deployment Options
-- **GitHub Pages**: Push to a GitHub repository and enable GitHub Pages.
-- **Netlify**: Simply drag and drop your project folder to the Netlify dashboard.
-- **Web Server**: Upload your files to any static web server.
-
 ## 🛠️ Customization
 - **Colors**: Adjust the appearance by modifying CSS variables in `css/styles.css`.
 - **Sounds**: Change sound files in the `sounds/` directory to personalize your alerts.
