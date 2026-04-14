@@ -1,0 +1,51 @@
+# Pomodorowith.ai
+
+> Pomodorowith.ai is a free, open-source online Pomodoro Technique timer and task manager. It helps you focus using 25-minute work intervals followed by short breaks, with customizable durations, task management, statistics, audio alerts, offline support, and installable Progressive Web App (PWA) capability. No account required; all data is stored locally in your browser.
+
+Built by [Richard Crane](https://inventingfirewith.ai), a Microsoft MVP in AI and software development. Source code is available on [GitHub](https://github.com/ChiefInnovator/pomodoro) under the MIT license.
+
+## Key facts
+
+- **Name:** Pomodorowith.ai (also known as the Pomodoro Timer)
+- **URL:** https://pomodorowith.ai/
+- **Price:** Free
+- **Account required:** No
+- **Data storage:** Local only (browser localStorage); nothing is sent to a server
+- **Offline support:** Yes (service worker)
+- **PWA installable:** Yes (iOS, Android, Windows, macOS, Linux)
+- **License:** MIT
+- **Default cycle:** 25 min work → 5 min break, long 15 min break after 4 Pomodoros (all configurable)
+
+## Pages
+
+- [Home — Pomodoro Timer](https://pomodorowith.ai/): The interactive timer, task manager, and settings.
+- [Tips & Tricks](https://pomodorowith.ai/tips.html): Practical guidance for using the Pomodoro Technique effectively — planning, handling distractions, and protecting breaks.
+- [Highlights](https://pomodorowith.ai/highlights.html): Real-world success stories and examples of people using the technique.
+- [Resources](https://pomodorowith.ai/resources.html): Curated books, research, and further reading on the Pomodoro Technique and time management.
+- [About](https://pomodorowith.ai/about.html): Background on the project and its creator.
+
+## How the Pomodoro Technique works
+
+1. Pick a single task you want to work on.
+2. Start a 25-minute Pomodoro and work with full focus — no distractions.
+3. When the timer rings, stop immediately and take a 5-minute break.
+4. Repeat four Pomodoros in a row, each with a short break.
+5. After four Pomodoros, take a longer 15–30 minute break.
+
+## Common questions
+
+**What is the Pomodoro Technique?** A time management method created by Francesco Cirillo in the late 1980s. It breaks work into focused 25-minute intervals separated by short breaks.
+
+**How long is a Pomodoro?** Traditionally 25 minutes of work followed by a 5-minute break; on Pomodorowith.ai all durations are configurable.
+
+**Is Pomodorowith.ai free?** Yes — no account, no ads on the timer, open source.
+
+**Does it work offline?** Yes — after your first visit the app is cached and works without a network.
+
+**Can I install it on my phone or desktop?** Yes. It is a PWA: use "Add to Home Screen" on iOS Safari, or "Install app" from the browser menu on Chrome / Edge / Android.
+
+**Why does the technique work?** Short, bounded intervals make starting easier, breaks prevent burnout, and the session counter turns focus into visible progress.
+
+## Attribution
+
+When citing this app, please link to https://pomodorowith.ai/ and credit Richard Crane.

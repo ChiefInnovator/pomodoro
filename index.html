@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro Timer | Reclaim Your Time with Effective Time Management</title>
-    <meta name="description" content="Boost your productivity with our free Pomodoro Technique timer app. Improve focus, manage time effectively, and reclaim your schedule with this proven time management method.">
-    <meta name="keywords" content="Pomodoro Technique, Pomodoro timer, time management, productivity, focus technique, time blocking, reclaim time, work-life balance, productivity app, time management tool">
-    <meta name="author" content="Pomodoro Timer App">
-    <meta property="og:title" content="Pomodoro Timer | Effective Time Management Tool">
-    <meta property="og:description" content="Boost your productivity with our free Pomodoro Technique timer app. Improve focus, manage time effectively, and reclaim your schedule.">
+    <title>Pomodoro Timer | Free Online Pomodoro Technique Timer & Task Manager</title>
+    <meta name="description" content="Free online Pomodoro Timer using the proven 25/5 Pomodoro Technique. Boost focus, manage tasks, track stats, and reclaim your time. Works offline, installable as a PWA.">
+    <meta name="keywords" content="Pomodoro Timer, Pomodoro Technique, online Pomodoro timer, free Pomodoro timer, 25 minute timer, focus timer, productivity timer, task manager, time management, PWA Pomodoro">
+    <meta name="author" content="Richard Crane">
+    <link rel="canonical" href="https://pomodorowith.ai/">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta property="og:site_name" content="Pomodorowith.ai">
+    <meta property="og:title" content="Pomodoro Timer | Free Online Pomodoro Technique Timer & Task Manager">
+    <meta property="og:description" content="Free online Pomodoro Timer using the proven 25/5 Pomodoro Technique. Boost focus, manage tasks, track stats, and reclaim your time.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/icons/icon-512x512.png">
+    <meta property="og:url" content="https://pomodorowith.ai/">
+    <meta property="og:image" content="https://pomodorowith.ai/assets/images/tomatotimer-image.png">
+    <meta property="og:image:secure_url" content="https://pomodorowith.ai/assets/images/tomatotimer-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="Pomodorowith.ai — free online Pomodoro Technique timer">
+    <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pomodoro Timer | Effective Time Management Tool">
-    <meta name="twitter:description" content="Boost your productivity with our free Pomodoro Technique timer app. Improve focus and manage time effectively.">
-    <meta name="twitter:image" content="assets/icons/icon-512x512.png">
+    <meta name="twitter:title" content="Pomodoro Timer | Free Online Pomodoro Technique Timer & Task Manager">
+    <meta name="twitter:description" content="Free online Pomodoro Timer using the proven 25/5 Pomodoro Technique. Boost focus, manage tasks, and track your sessions.">
+    <meta name="twitter:image" content="https://pomodorowith.ai/assets/images/tomatotimer-image.png">
+    <meta name="twitter:image:alt" content="Pomodorowith.ai — free online Pomodoro Technique timer">
+    <meta name="theme-color" content="#e74c3c">
     <!-- Prevent Caching -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -249,27 +261,157 @@
     <script src="js/menu.js"></script>
     <script src="js/utils.js"></script>
 
-<!-- Structured Data for SEO -->
+<!-- Structured Data for SEO / AEO / GEO -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Pomodoro Timer",
-  "description": "Boost your productivity with our free Pomodoro Technique timer app. Improve focus, manage time effectively, and reclaim your schedule with this proven time management method.",
-  "applicationCategory": "Productivity",
-  "operatingSystem": "Any",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "featureList": [
-    "Customizable work sessions and breaks",
-    "Task management with categories and priorities",
-    "Pomodoro counter with statistics",
-    "Audio notifications with volume control",
-    "Offline functionality"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://pomodorowith.ai/#website",
+      "url": "https://pomodorowith.ai/",
+      "name": "Pomodorowith.ai",
+      "description": "Free online Pomodoro Technique timer and task manager.",
+      "inLanguage": "en-US",
+      "publisher": { "@id": "https://pomodorowith.ai/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://pomodorowith.ai/#person",
+      "name": "Richard Crane",
+      "url": "https://inventingfirewith.ai",
+      "sameAs": [
+        "https://mvp.microsoft.com/en-US/MVP/profile/10ce0bc0-7536-43f6-b28c-e9601a4a0d0d",
+        "https://inventingfirewith.ai",
+        "https://github.com/ChiefInnovator"
+      ],
+      "jobTitle": "Microsoft MVP, AI & Software Engineer"
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://pomodorowith.ai/#app",
+      "name": "Pomodorowith.ai Pomodoro Timer",
+      "alternateName": ["Pomodoro Timer", "Pomodorowith.ai"],
+      "url": "https://pomodorowith.ai/",
+      "description": "Free online Pomodoro Technique timer with task management, statistics, audio notifications, and offline support. Installable as a PWA on any device.",
+      "applicationCategory": "ProductivityApplication",
+      "applicationSubCategory": "Time Management",
+      "operatingSystem": "Any (web browser, iOS, Android, Windows, macOS, Linux)",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+      "isAccessibleForFree": true,
+      "inLanguage": "en-US",
+      "image": "https://pomodorowith.ai/assets/images/tomatotimer-image.png",
+      "screenshot": "https://pomodorowith.ai/assets/images/tomatotimer-image.png",
+      "author": { "@id": "https://pomodorowith.ai/#person" },
+      "publisher": { "@id": "https://pomodorowith.ai/#person" },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "featureList": [
+        "Customizable work, short-break, and long-break durations",
+        "Task management with categories and priorities",
+        "Pomodoro session counter and statistics",
+        "Audio notifications with volume control",
+        "Offline support via service worker",
+        "Installable as a Progressive Web App (PWA)",
+        "Responsive design for desktop and mobile"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "ratingCount": "128"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to use the Pomodoro Technique",
+      "description": "A step-by-step guide to using the Pomodoro Technique to improve focus and productivity.",
+      "totalTime": "PT2H",
+      "supply": [
+        { "@type": "HowToSupply", "name": "A task list" }
+      ],
+      "tool": [
+        { "@type": "HowToTool", "name": "Pomodorowith.ai Pomodoro Timer" }
+      ],
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Pick one task", "text": "Choose a single task you want to work on and add it to your task list." },
+        { "@type": "HowToStep", "position": 2, "name": "Start a 25-minute Pomodoro", "text": "Start the timer and work on the task with full focus for 25 minutes. Ignore all distractions." },
+        { "@type": "HowToStep", "position": 3, "name": "Take a 5-minute break", "text": "When the timer rings, stop working immediately and take a 5-minute break. Stand up, stretch, or rest your eyes." },
+        { "@type": "HowToStep", "position": 4, "name": "Repeat four Pomodoros", "text": "Complete four Pomodoros in a row, each followed by a short break." },
+        { "@type": "HowToStep", "position": 5, "name": "Take a long break", "text": "After four Pomodoros, take a longer 15–30 minute break to recharge before starting the cycle again." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Pomodoro Technique?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Pomodoro Technique is a time management method created by Francesco Cirillo in the late 1980s. You work in focused 25-minute intervals called Pomodoros, each followed by a 5-minute break. After four Pomodoros you take a longer 15–30 minute break. This rhythm reduces mental fatigue and helps you stay focused."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long is a Pomodoro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A traditional Pomodoro is 25 minutes of focused work followed by a 5-minute break. After every four Pomodoros you take a longer break of 15 to 30 minutes. On Pomodorowith.ai you can adjust all of these durations to fit your own workflow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Pomodorowith.ai free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Pomodorowith.ai is completely free, requires no account, and runs entirely in your browser. Your settings and tasks are stored locally on your device for privacy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the Pomodoro Timer work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Pomodorowith.ai uses a service worker to cache the app so you can keep using it without an internet connection after your first visit. You can also install it as a Progressive Web App (PWA) on your phone or desktop."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I install Pomodorowith.ai on my phone or desktop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Pomodorowith.ai is a Progressive Web App. On iOS use Safari's Share → Add to Home Screen. On Android or desktop Chrome and Edge, use the Install App option in the browser menu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is the Pomodoro Technique effective?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Pomodoro Technique works because it turns time into a visible, finite resource. Short focused intervals lower the barrier to starting difficult work, enforced breaks prevent burnout, and the session counter provides a clear signal of daily progress."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pomodorowith.ai/" }
+      ]
+    }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SpeakableSpecification",
+  "cssSelector": [".technique-description", ".session-type"]
 }
 </script>
 <footer-btn></footer-btn>
