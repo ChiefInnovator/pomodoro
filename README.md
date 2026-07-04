@@ -1,4 +1,4 @@
-# Pomodorowith.ai — Free Online Pomodoro Timer
+# **Pomodorowith.ai** — *Free Online Pomodoro Timer*
 
 > A fast, installable, privacy-friendly Pomodoro Technique timer and task manager. Work in focused 25-minute intervals, take real breaks, and reclaim your time.
 
@@ -10,18 +10,9 @@
   </a>
 </p>
 
-## Live preview
+## ✨ Features
 
-Sharing the link anywhere that renders Open Graph metadata (Slack, iMessage, X/Twitter, Discord, LinkedIn, Facebook, WhatsApp, Teams) will show a rich card with the title, description, and the timer image above. You can verify link previews with:
-
-- [opengraph.xyz/url/https%3A%2F%2Fpomodorowith.ai](https://www.opengraph.xyz/url/https%3A%2F%2Fpomodorowith.ai)
-- [Meta Sharing Debugger](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fpomodorowith.ai)
-- [X Card Validator](https://cards-dev.twitter.com/validator)
-- [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/inspect/https:%2F%2Fpomodorowith.ai)
-
-## Features
-
-- **Customizable timer** — Adjust work, short break, long break, and long-break interval.
+- **Customizable timer** — Adjust work, short break, long break, and long-break intervals.
 - **Task manager** — Add tasks with categories, priorities, notes, and estimated Pomodoros. Filter by category.
 - **Session statistics** — Track your Pomodoro count and progress throughout the day.
 - **Audio notifications** — Volume control and mute toggle for session and break alerts.
@@ -30,42 +21,38 @@ Sharing the link anywhere that renders Open Graph metadata (Slack, iMessage, X/T
 - **Responsive** — Works on phones, tablets, and desktops.
 - **Privacy-first** — Settings and tasks live in your browser's local storage. No account, no tracking of personal data.
 
-## Pages
+## 🚀 Getting Started
 
-| Page | Purpose |
-| --- | --- |
-| [`index.html`](index.html) | Timer, task manager, and settings |
-| [`tips.html`](tips.html) | Practical Pomodoro Technique tips and tricks |
-| [`highlights.html`](highlights.html) | Real-world success stories |
-| [`resources.html`](resources.html) | Curated books, research, and further reading |
-| [`about.html`](about.html) | Project and creator background |
+### Prerequisites
 
-## SEO, GEO & AEO
+- A modern web browser (Chrome, Firefox, Safari, Edge).
+- Basic knowledge of HTML, CSS, and JavaScript.
 
-This project is optimized for classic search, generative engines (GEO), and answer engines (AEO):
+### Installation
 
-- Per-page `<title>`, `<meta name="description">`, and keyword-focused content
-- Canonical URLs, absolute Open Graph / Twitter Card tags, and validated image dimensions for link previews
-- JSON-LD `@graph` with `WebSite`, `WebApplication`, `Person`, `HowTo`, `FAQPage`, `BreadcrumbList`, and `SpeakableSpecification`
-- [`sitemap.xml`](sitemap.xml) and [`robots.txt`](robots.txt) with explicit `Allow` for GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended, and others
-- [`llms.txt`](llms.txt) providing a clean, citation-ready summary for large language models
-
-## Run locally
-
-No build step — it is vanilla HTML, CSS, and JavaScript.
+To run the Pomodoro Timer locally, clone the repository:
 
 ```bash
 git clone https://github.com/ChiefInnovator/pomodoro.git
 cd pomodoro
-# Option 1: open index.html directly in your browser
-# Option 2: serve over HTTP so the service worker and PWA features work
-python3 -m http.server 8080
-# then visit http://localhost:8080
 ```
 
-> Service workers require HTTPS (or `localhost`). Opening `index.html` via `file://` will disable offline and install features.
+### Run Locally
 
-## Project structure
+No build step is required — it is vanilla HTML, CSS, and JavaScript.
+
+```bash
+# Option 1: Open index.html directly in your browser
+# Option 2: Serve over HTTP so the service worker and PWA features work
+python3 -m http.server 8080
+# Then visit http://localhost:8080
+```
+
+> **Note:** Service workers require HTTPS (or `localhost`). Opening `index.html` via `file://` will disable offline and install features.
+
+## 🏗️ Architecture
+
+### Project Structure
 
 ```text
 .
@@ -85,21 +72,34 @@ python3 -m http.server 8080
 └── llms.txt             # LLM-friendly site summary
 ```
 
-## Tech
+### Tech Stack
 
-Vanilla JavaScript, HTML, CSS. Service Worker for offline. Plausible Analytics for privacy-friendly page views. Deployed as an Azure Static Web App (see [`deployment.md`](deployment.md)).
+- **Languages:** Vanilla JavaScript, HTML, CSS.
+- **Offline Support:** Service Worker for caching and offline functionality.
+- **Analytics:** Plausible Analytics for privacy-friendly page views.
+- **Deployment:** Deployed as an Azure Static Web App (see [`deployment.md`](deployment.md)).
 
-## Customization
+### Customization
 
 - **Theme** — Adjust CSS variables in [`css/styles.css`](css/styles.css).
 - **Sounds** — Replace files in [`sounds/`](sounds/) and update references in [`js/app.js`](js/app.js).
 - **Defaults** — Edit the `settings` defaults in [`js/app.js`](js/app.js).
 
-## Contributing
+## 📄 Pages
 
-Issues and pull requests welcome. Fork the repo, create a feature branch, and open a PR.
+| Page | Purpose |
+| --- | --- |
+| [`index.html`](index.html) | Timer, task manager, and settings |
+| [`tips.html`](tips.html) | Practical Pomodoro Technique tips and tricks |
+| [`highlights.html`](highlights.html) | Real-world success stories |
+| [`resources.html`](resources.html) | Curated books, research, and further reading |
+| [`about.html`](about.html) | Project and creator background |
 
-## License
+## 🤝 Contributing
+
+Issues and pull requests are welcome! Fork the repo, create a feature branch, and open a PR.
+
+## 📜 License
 
 MIT. See [LICENSE](LICENSE) if present, otherwise the project is distributed under the standard MIT terms.
 
@@ -109,6 +109,7 @@ MIT. See [LICENSE](LICENSE) if present, otherwise the project is distributed und
 
 Built by **[Richard Crane](https://inventingfirewith.ai)** — Microsoft MVP in AI, Azure, Dev, and DevOps.
 
+- [MILL5](https://www.mill5.com) - An AI innovation company.
 - [Microsoft MVP Profile](https://mvp.microsoft.com/en-US/MVP/profile/10ce0bc0-7536-43f6-b28c-e9601a4a0d0d)
 - [Inventing Fire with AI podcast](https://inventingfirewith.ai)
 
@@ -116,4 +117,9 @@ Built by **[Richard Crane](https://inventingfirewith.ai)** — Microsoft MVP in 
 
 ---
 
-<sub>Powered by [RepoBeacon](https://repobeacon.com)</sub>
+<sub>Powered by [GitHub](https://github.com)</sub>
+
+
+---
+
+<sub>Powered by [RepoSpotlight](https://repospotlight.ai)</sub>
